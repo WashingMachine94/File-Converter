@@ -1,0 +1,306 @@
+:root {
+    --main-background-color: rgb(55, 55, 55);
+    --secondary-background-color: rgb(45, 45, 45);
+    --dark-background-color: rgb(40, 40, 40);
+    --main-button-background-color: rgb(75, 75, 75);
+
+
+    --header-background-color: rgb(65, 65, 65);
+
+    --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    --main-color: rgb(200, 200, 200);
+}
+
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary-background-color);
+    overflow: auto !important;
+    color: var(--main-color);
+    padding: 0px;
+    margin: 0px;
+}
+.hidden {
+    display: none;
+}
+input[type="file"] {
+    display: none;
+}
+
+.gray {
+    background-color: var(--main-background-color);
+}
+
+.dark {
+    background-color: var(--secondary-background-color);
+}
+
+.darker {
+    background-color: var(--dark-background-color);
+}
+
+.wh-100 {
+    width: 100%;
+    height: 100%;
+}
+
+.mh-100 {
+    max-height: 94px;
+    overflow-y: auto;
+}
+
+.m-5 {
+    margin: 5px;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--dark-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(58, 58, 58);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.button {
+    height: 30px;
+    width: max-content;
+    margin: 10px;
+    padding: 5px;
+    font-size: smaller;
+    padding-left: 8px;
+    padding-right: 8px;
+    /* box-shadow: var(--box-shadow); */
+
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--main-button-background-color);
+}
+
+
+.titlebar {
+    background-color: var(--header-background-color);
+    box-shadow: var(--box-shadow);
+    color: var(--main-color);
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+
+.closeWindow {
+    width: 40px;
+    height: 100%;
+    right: 0px;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    font-size: x-large;
+    line-height: 25px;
+}
+
+.closeWindow::after {
+    content: "\00d7";
+}
+
+.closeWindow:hover {
+    background-color: red;
+}
+
+.minimizeWindow {
+    width: 40px;
+    height: 100%;
+    right: 40px;
+    position: absolute;
+    text-align: center;
+    font-size: x-large;
+    line-height: 25px;
+}
+
+.minimizeWindow::after {
+    content: "\2212";
+}
+
+.minimizeWindow:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.settingsButton {
+    display: grid;
+    place-content: center;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.settingsButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.SettingsIcon {
+    transition: .3s ease-out;
+}
+
+.SettingsIconHover {
+    transform: rotate(90deg);
+}
+
+.drag {
+    -webkit-app-region: drag;
+}
+
+.nodrag {
+    -webkit-app-region: no-drag;
+}
+
+.flexbox {
+    display: flex;
+    height: calc(100% - 30px);
+}
+
+.leftside {
+    background-color: var(--main-background-color);
+    color: var(--main-color);
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 2;
+}
+
+.main-header {
+    background-color: var(--main-background-color);
+}
+
+/* File list */
+.ConvertGroupDiv {
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: rgb(40, 40, 40);
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px
+}
+
+.FileListContainer {
+    overflow-y: auto;
+    background-color: var(--secondary-background-color);
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.fileList {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(40, 40, 40);
+}
+
+.fileListDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: rgb(55, 55, 55);
+    padding: 0px 0px 0px 0px;
+}
+
+.fileRemoveButton {
+    margin-right: 4px;
+    padding-top: 4px;
+    float: right;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+/* droparea */
+#drop-area {
+    text-align: center;
+    min-width: 150px;
+    width: auto;
+    margin: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 2px dashed #5f5f5f;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.hover {
+    background-color: rgb(60, 60, 60);
+}
+
+#inner-drop-area {
+    transition: all .2s ease-in-out;
+}
+
+.hover {
+    transition: all .2s ease-in-out;
+}
+
+.convertDropdown {
+    float: right;
+    background-color: var(--main-button-background-color);
+    border-radius: 5px;
+    border-style: none;
+    margin: 5px;
+    color: var(--main-color);
+    padding: 2px;
+    height: 27px;
+    cursor: pointer;
+}
+
+.convertButton {
+    height: 27px;
+    max-height: 27px;
+    width: max-content;
+    margin: 5px;
+    font-size: smaller;
+    padding-left: 8px;
+    padding-right: 8px;
+    float: right;
+    display: grid;
+    place-content: center;
+
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--main-button-background-color);
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.convertButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

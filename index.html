@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>File converter</title>
+    <link rel="stylesheet" href="index.css" />
+    <link href="./fontawesome/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="titlebar drag">
+        <span class="settingsButton nodrag" id="SettingsButton" type="text">
+            <i id="SettingsIcon" class="SettingsIcon fa fa-cog"></i>
+        </span>
+        <!-- <span class="settingsButton nodrag hidden" id="UpdateButton" onclick="restartApp()" type="text" style="margin-left: 30px; color: rgb(65, 197, 133);" title="Update available">
+            <img src="./images/download-svgrepo-com.svg" style="color: rgb(65, 197, 133);">
+        </span> -->
+        <span class="closeWindow nodrag" id="CloseButton" type="text"></span>
+        <span class="minimizeWindow nodrag" id="MinimizeButton" type="text"></span>
+    </div>
+    <div class="flexbox">
+        <div class="leftside flexbox-item">
+            <div id="drop-area">
+                <p class="mb-3 text">Drag and drop files to convert.</p>
+                <label class="button custom-file-upload">
+                    <input type="file" id="fileElem" onchange="UploadFiles(this.files)" multiple>
+                    Select some files
+                </label>
+            </div>
+            <label class="button custom-file-upload">
+                <input id="directory-upload" type="file" onchange="UploadDirectory()" name="resume" webkitdirectory
+                    directory multiple />
+                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                Or select a folder
+            </label>
+        </div>
+        <div class="main flexbox-item">
+            <container class="FileListContainer" id="FileListContainer">
+                <!-- This is where the all the files go in.  -->
+            </container>
+        </div>
+    </div>
+</body>
+<script src="convert.js"></script>
+<script src="index.js"></script>
+
+</html>

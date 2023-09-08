@@ -1,0 +1,40 @@
+{
+  "name": "file-converter",
+  "version": "0.1.1",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "build": "electron-builder build --win --publish never"
+  },
+  "author": "WashingMachine94",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.3.0",
+    "electron-builder": "^24.4.0"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "sharp": "^0.32.3"
+  },
+  "build": {
+    "appId": "WM94.File.Converter",
+    "productName": "File Converter",
+    "win": {
+      "target": "nsis",
+      "icon": "./images/change1.ico",
+      "files": [
+        "!.git/*",
+        "!.gitignore"
+      ]
+    },
+    "nsis": {
+      "installerIcon": "./images/change1.ico",
+      "uninstallerIcon": "./images/change1.ico",
+      "uninstallDisplayName": "File Converter"
+    },
+    "icon": "./images/change1.ico"
+  }
+}

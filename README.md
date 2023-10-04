@@ -1,7 +1,7 @@
  # File Converter
 A quick way to convert your files without having to worry about bandwidth or filesize like online converters.
 
-Download link: [here](https://github.com/WashingMachine94/File-Converter/releases/tag/v0.1.1).
+Download link: [here](https://github.com/WashingMachine94/File-Converter/releases/tag/v0.1.2).
 
 ![File Converter](https://github.com/WashingMachine94/File-Converter/assets/77636779/eb1b51dd-6666-400e-b008-13fe2ce5d21a)
 

@@ -1,6 +1,6 @@
 {
   "name": "file-converter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "main": "main.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "electron-builder": "^24.4.0"
   },
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "ffmpeg-static": "^5.2.0",
     "fluent-ffmpeg": "^2.1.2",
     "sharp": "^0.32.3"

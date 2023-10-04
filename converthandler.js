@@ -1,4 +1,4 @@
-const { convertImage } = require('./convertimage.js');
+const { convertImage } = require('./convertImage.js');
 const { convertVideo } = require('./convertvideo.js');
 
 

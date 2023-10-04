@@ -4,7 +4,6 @@ const sharp = require('sharp');
 function convertImage(inputPath, outputPath) {
     return new Promise((resolve, reject) => {
         sharp(inputPath)
-        .toFormat(outputFormat)
         .toFile(outputPath)
         .then(function(info) { 
             return resolve(info);

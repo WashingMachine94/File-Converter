@@ -1,7 +1,11 @@
 const { app, BrowserWindow, remote } = require('electron');
-// const { autoUpdater } = require('electron-updater');
+const { autoUpdater, AppUpdater } = require('electron-updater');
 const ipcMain = require('electron').ipcMain;
 const path = require('path');
+
+autoUpdater.autoDownload = false;
+autoUpdater.autoInstallOnAppQuit = false;
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
 	app.quit();
@@ -16,14 +20,12 @@ const createWindow = () => {
 		height: 650,
 		titleBarStyle: 'hidden',
 		frame: false,
-		// icon: __dirname + './images/convert-arrows-icon.ico',
 		icon: __dirname + './images/change1.ico',
 		webPreferences: {
 			autoHideMenuBar: true,
 			nodeIntegration: true,
 			contextIsolation: false,
 			enableRemoteModule: true,
-			// devTools: false
 		},
 	});
 
@@ -70,6 +72,9 @@ app.on('uncaughtException', function (err) {
 
 app.on('ready', () => {
 	win = createWindow();
+
+	autoUpdater.checkForUpdates();
+	autoUpdater.checkForUpdatesAndNotify();
 });
 
 app.on('window-all-closed', () => {
@@ -83,6 +88,19 @@ app.on('activate', () => {
 		createWindow();
 	}
 });
+ipcMain.on('restartAndUpdate', () => {
+	autoUpdater.quitAndInstall(true, true);
+});
+autoUpdater.on('update-available', (info) => {
+	win.webContents.send('updateMessage', info);
+});
+autoUpdater.on('update-downloaded', (info) => {
+	win.webContents.send('updateDownloaded', info);
+});
+
+autoUpdater.on('error', (err) => {
+	win.webContents.send('errorMessage', err);
+});
 
 ipcMain.on('app/minimize', () => {
 	win.minimize();
@@ -91,7 +109,6 @@ ipcMain.on('app/minimize', () => {
 ipcMain.on('app/close', () => {
 	win.close();
 });
-
-ipcMain.on('restart_app', () => {
-    autoUpdater.quitAndInstall();
+ipcMain.on('app/update', () => {
+	autoUpdater.downloadUpdate();
 });

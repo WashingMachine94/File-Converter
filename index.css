@@ -25,11 +25,20 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 input[type="file"] {
-    display: none;
+    /* display: none; */
+        position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    padding: 0;
+    margin: -1px;
+    white-space: nowrap;
 }
 
 .gray {
@@ -50,7 +59,7 @@ input[type="file"] {
 }
 
 .mh-100 {
-    max-height: 94px;
+    max-height: 90px;
     overflow-y: auto;
 }
 
@@ -93,7 +102,14 @@ input[type="file"] {
     border-radius: 5px;
     background-color: var(--main-button-background-color);
 }
-
+.button:focus-within {
+    outline: 0;
+    border: 1px solid gainsboro !important;
+}
+:focus {
+    outline: 0;
+    border: 1px solid gainsboro !important;
+}
 
 .titlebar {
     background-color: var(--header-background-color);
@@ -165,6 +181,23 @@ input[type="file"] {
 .SettingsIconHover {
     transform: rotate(90deg);
 }
+.UpdateSpinner {
+    display: grid;
+    place-content: center;
+    width: 30px;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    justify-content: center;
+    font-size: medium;
+    line-height: 25px;
+}
+.UpdateLabel {
+    margin-left: 60px;
+    line-height: 2.4;
+    font-size: 12px;
+    color: rgb(65, 197, 133);
+}
 
 .drag {
     -webkit-app-region: drag;
@@ -206,7 +239,8 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 8px
+    padding: 12px;
+    padding-top: 9px;
 }
 
 .FileListContainer {
@@ -227,6 +261,7 @@ input[type="file"] {
     border-style: solid;
     position: relative;
     border-color: rgb(40, 40, 40);
+    width: 100%;
 }
 
 .fileListDiv {
@@ -236,7 +271,18 @@ input[type="file"] {
     background-color: rgb(55, 55, 55);
     padding: 0px 0px 0px 0px;
 }
-
+.fileDiv {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 10px);
+}
+.fileNameDiv {
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+}
 .fileRemoveButton {
     margin-right: 4px;
     padding-top: 4px;
@@ -247,7 +293,7 @@ input[type="file"] {
 
 
 /* droparea */
-#drop-area {
+.drop-area {
     text-align: center;
     min-width: 150px;
     width: auto;

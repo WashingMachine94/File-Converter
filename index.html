@@ -6,6 +6,10 @@
     <title>File converter</title>
     <link rel="stylesheet" href="index.css" />
     <link href="./fontawesome/css/all.css" rel="stylesheet">
+    <script defer src="components/ConvertScreen.js"></script>
+    <script defer src="./components/ConvertGroup.js"></script>
+    <script defer src="./components/FileType.js"></script>
+    <script defer src="components/file.js"></script>
 </head>
 
 <body>
@@ -13,32 +17,47 @@
         <span class="settingsButton nodrag" id="SettingsButton" type="text">
             <i id="SettingsIcon" class="SettingsIcon fa fa-cog"></i>
         </span>
-        <!-- <span class="settingsButton nodrag hidden" id="UpdateButton" onclick="restartApp()" type="text" style="margin-left: 30px; color: rgb(65, 197, 133);" title="Update available">
-            <img src="./images/download-svgrepo-com.svg" style="color: rgb(65, 197, 133);">
-        </span> -->
+        <span class="settingsButton nodrag hidden" id="UpdateButton" onclick="UpdateApp()" type="text"
+            style="margin-left: 30px; color: rgb(65, 197, 133);" title="Update available">
+            <img src="./images/downloadicon.svg"
+                style="filter: invert(92%) sepia(19%) saturate(1487%) hue-rotate(77deg) brightness(82%) contrast(85%); height: 23px;">
+        </span>
+        <div id="UpdateLoad" class="hidden">
+            <span class="UpdateSpinner nodrag" type="text" style="margin-left: 30px; color: rgb(65, 197, 133);"
+                title="Downloading Update">
+                <i id="UpdateLoadIcon" class="UpdateLoadIcon fa fa-spinner fa-spin"></i>
+            </span>
+            <label class="UpdateLabel">Downloading Update</label>
+        </div>
+        <span class="settingsButton nodrag hidden" id="RestartAndUpdateButton" onclick="RestartAndUpdate()" type="text"
+            style="margin-left: 30px; color: rgb(65, 197, 133);" title="Restart and Update">
+            <i class="fa fa-rotate-left"></i>
+        </span>
         <span class="closeWindow nodrag" id="CloseButton" type="text"></span>
         <span class="minimizeWindow nodrag" id="MinimizeButton" type="text"></span>
     </div>
     <div class="flexbox">
         <div class="leftside flexbox-item">
-            <div id="drop-area">
-                <p class="mb-3 text">Drag and drop files to convert.</p>
+            <div id="drop-area" class="drop-area">
+                <p class="mb-3 text">Drag and drop to convert.</p>
                 <label class="button custom-file-upload">
-                    <input type="file" id="fileElem" onchange="UploadFiles(this.files)" multiple>
+                    <input tabindex="1" type="file" id="fileElem" onchange="UploadFiles(this.files); this.value= null"
+                        multiple>
                     Select some files
                 </label>
             </div>
             <label class="button custom-file-upload">
-                <input id="directory-upload" type="file" onchange="UploadDirectory()" name="resume" webkitdirectory
-                    directory multiple />
+                <input tabindex="2" id="directory-upload" type="file"
+                    onchange="UploadFiles(this.files); this.value=null" name="resume" webkitdirectory directory
+                    multiple />
                 <i class="fa-solid fa-arrow-up-from-bracket"></i>
                 Or select a folder
             </label>
         </div>
-        <div class="main flexbox-item">
-            <container class="FileListContainer" id="FileListContainer">
+        <div id="drop-area" class="main flexbox-item">
+            <convert-screen class="FileListContainer" id="FileListContainer">
                 <!-- This is where the all the files go in.  -->
-            </container>
+            </convert-screen>
         </div>
     </div>
 </body>

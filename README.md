@@ -5,6 +5,10 @@ Download link: [here](https://github.com/WashingMachine94/File-Converter/release
 
 ![File Converter](https://github.com/WashingMachine94/File-Converter/assets/77636779/eb1b51dd-6666-400e-b008-13fe2ce5d21a)
 
+Throw your files or folders in and convert them
+
+![Fileconverter example](https://github.com/WashingMachine94/File-Converter/assets/77636779/f8c4a71e-ee50-48d0-b580-531169ac2025)
+
  ## Features
  * Works offline
  * Simple and intuitive user interface for quick file conversion.
